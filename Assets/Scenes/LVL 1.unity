@@ -4166,6 +4166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21805680c7988442b2ffdded47e498d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myInputController: {fileID: 617551164}
   groundMask:
     serializedVersion: 2
     m_Bits: 128

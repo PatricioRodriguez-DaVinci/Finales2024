@@ -4,25 +4,10 @@ using UnityEngine;
 
 public class AimRotation : MonoBehaviour
 {
-    #region Datamembers
-
-    #region Editor Settings
-
+    public InputController myInputController;
     [SerializeField] private LayerMask groundMask;
 
-    #endregion
-    #region Private Fields
-
     private Camera mainCamera;
-
-    #endregion
-
-    #endregion
-
-
-    #region Methods
-
-    #region Unity Callbacks
 
     private void Start()
     {
@@ -32,10 +17,8 @@ public class AimRotation : MonoBehaviour
 
     private void Update()
     {
-        Aim();
+        if(myInputController.isAttacking) Aim();
     }
-
-    #endregion
 
     private void Aim()
     {
@@ -69,6 +52,4 @@ public class AimRotation : MonoBehaviour
             return (success: false, position: Vector3.zero);
         }
     }
-
-    #endregion
 }

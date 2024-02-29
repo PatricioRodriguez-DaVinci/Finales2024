@@ -29,6 +29,8 @@ public class Movement : Player
         movePlayer = playerInput.x * camRight + playerInput.z * camForward;
 
         player.Move(movePlayer * speed * Time.deltaTime);
+
+        LookAt();
     }
 
     void camDirection()
@@ -41,5 +43,14 @@ public class Movement : Player
 
         camForward = camForward.normalized;
         camRight = camRight.normalized;
+    }
+
+    void LookAt()
+    {
+        if (movePlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movePlayer, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // Adjust rotation speed as needed
+        }
     }
 }
