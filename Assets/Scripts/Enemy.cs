@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    protected Transform playerTransform;
+    private void Awake()
+    {
+        _go = GameObject.FindGameObjectWithTag("Player");
+        if (_go != null) playerTransform = _go.GetComponent<Transform>();
+    }
+
     private void Start()
     {
-        life = 5;
         myDamageController.DoDamage += TakeDamage;
     }
     void TakeDamage()

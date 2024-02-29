@@ -1,8 +1,8 @@
 using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
-    public DamageController myDamageController;
-    private GameObject _go;
+    protected DamageController myDamageController;
+    protected GameObject _go;
 
     [SerializeField] protected int life = default;
     [SerializeField] protected float speed = default;
