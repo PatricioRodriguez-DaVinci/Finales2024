@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : Player
@@ -7,6 +5,7 @@ public class Movement : Player
     public InputController myInpuntcontroller;
     public float horizontalMove;
     public float verticalMove;
+    public float runSpeed;
     private Vector3 playerInput;
     private Vector3 movePlayer;
 
@@ -18,6 +17,7 @@ public class Movement : Player
 
     void Update()
     {
+
         horizontalMove = myInpuntcontroller.xAxis;
         verticalMove = myInpuntcontroller.zAxis;
 
@@ -28,7 +28,13 @@ public class Movement : Player
 
         movePlayer = playerInput.x * camRight + playerInput.z * camForward;
 
-        player.Move(movePlayer * speed * Time.deltaTime);
+        if (myInpuntcontroller.isRunning)
+        {
+            player.Move(movePlayer * runSpeed * Time.deltaTime);
+        }
+        else player.Move(movePlayer * speed * Time.deltaTime);
+
+        LookAt();
     }
 
     void camDirection()
@@ -42,4 +48,14 @@ public class Movement : Player
         camForward = camForward.normalized;
         camRight = camRight.normalized;
     }
+
+    void LookAt()
+    {
+        if (movePlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movePlayer, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // Adjust rotation speed as needed
+        }
+    }
+
 }

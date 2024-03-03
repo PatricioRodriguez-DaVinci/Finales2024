@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject rangedEnemy;
+    public GameObject meleeEnemy;
+    public float spawnInterval = 3f;
+
+    private void Start()
     {
-        
+        // Start spawning enemies immediately
+        InvokeRepeating("SpawnRandomEnemy", 0f, spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnRandomEnemy()
     {
-        
+        // Randomly choose which enemy to instantiate
+        GameObject enemyPrefab = Random.Range(0, 3) == 0 ? rangedEnemy : meleeEnemy;
+
+        // Instantiate the chosen enemy at the spawner's position
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
 }

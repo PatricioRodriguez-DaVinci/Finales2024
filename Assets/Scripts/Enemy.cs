@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    private void Start()
-    {
-        life = 5;
-        myDamageController.DoDamage += TakeDamage;
-    }
     void TakeDamage()
     {
         if (life <= 1) Destroy(gameObject);
@@ -17,8 +12,11 @@ public class Enemy : Entity
         }
     }
 
-    private void OnDisable()
+    private void OnTriggerEnter(Collider other)
     {
-        myDamageController.DoDamage -= TakeDamage;
+        if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
+        {
+            TakeDamage();
+        }
     }
 }
