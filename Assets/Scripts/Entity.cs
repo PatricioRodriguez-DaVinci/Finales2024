@@ -1,7 +1,8 @@
 using UnityEngine;
-public abstract class Entity : MonoBehaviour
+public class Entity : MonoBehaviour
 {
     protected DamageController myDamageController;
+    protected Transform myPlayerTransform;
     protected GameObject _go;
 
     [SerializeField] protected int life = default;
@@ -10,6 +11,11 @@ public abstract class Entity : MonoBehaviour
     private void Awake()
     {
         _go = GameObject.FindGameObjectWithTag("Controllers");
+
         if (_go != null) myDamageController = _go.GetComponent<DamageController>();
+
+        _go = GameObject.FindGameObjectWithTag("Player");
+
+        if (_go != null) myPlayerTransform = _go.GetComponent<Transform>();
     }
 }

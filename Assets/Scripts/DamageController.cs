@@ -3,13 +3,10 @@ using UnityEngine;
 public class DamageController : MonoBehaviour
 {
     public delegate void MyDelegate();
-    public event MyDelegate DoDamage;
+    public event MyDelegate DoTakeDamage;
 
-    private void Update()
+    public void StartDamageEvent()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && DoDamage != null)
-        {
-            DoDamage();
-        }
+        DoTakeDamage();
     }
 }

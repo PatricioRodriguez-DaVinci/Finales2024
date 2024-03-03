@@ -16,16 +16,16 @@ public class EnemyShooter : Enemy
 
     void Update()
     {
-        var distance = Vector3.Distance(transform.position, playerTransform.position);
+        var distance = Vector3.Distance(transform.position, myPlayerTransform.position);
         _reloadingTime -= 1 * Time.deltaTime;
 
         if (distance >= minDistance && distance < viewRange)
         {
-            transform.LookAt(playerTransform);
+            transform.LookAt(myPlayerTransform);
             transform.position += transform.forward * speed * Time.deltaTime;
         }
 
-        if (Vector3.Distance(transform.position, playerTransform.position) <= shootRange && _reloadingTime <= 0)
+        if (Vector3.Distance(transform.position, myPlayerTransform.position) <= shootRange && _reloadingTime <= 0)
         {
             Shoot();
         }

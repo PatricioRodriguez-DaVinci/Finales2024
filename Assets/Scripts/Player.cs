@@ -7,10 +7,10 @@ public class Player : Entity
 
     private void Start()
     {
-        life = 100;
-        myDamageController.DoDamage += TakeDamage;
+        life = 5;
+        myDamageController.DoTakeDamage += TakeDamage;
     }
-    void TakeDamage()
+    public void TakeDamage()
     {
         if (life <= 1)
         {
@@ -26,6 +26,6 @@ public class Player : Entity
 
     private void OnDisable()
     {
-        myDamageController.DoDamage -= TakeDamage;
+        myDamageController.DoTakeDamage -= TakeDamage;
     }
 }

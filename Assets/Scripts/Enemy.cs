@@ -2,17 +2,6 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    protected Transform playerTransform;
-    private void Awake()
-    {
-        _go = GameObject.FindGameObjectWithTag("Player");
-        if (_go != null) playerTransform = _go.GetComponent<Transform>();
-    }
-
-    private void Start()
-    {
-        myDamageController.DoDamage += TakeDamage;
-    }
     void TakeDamage()
     {
         if (life <= 1) Destroy(gameObject);
@@ -23,8 +12,11 @@ public class Enemy : Entity
         }
     }
 
-    private void OnDisable()
+    private void OnTriggerEnter(Collider other)
     {
-        myDamageController.DoDamage -= TakeDamage;
+        if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
+        {
+            TakeDamage();
+        }
     }
 }
