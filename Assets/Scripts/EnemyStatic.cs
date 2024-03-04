@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatic : Enemy
+public class EnemyStatic : EnemyShooter
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float aimRotation;
+    override protected void LookAtPlater()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    override protected void Shoot()
     {
-        
+        GameObject myInstance = GameObject.Instantiate(shootingPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
+        myInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.forward * shootForce);
+        spawnPoint.transform.Rotate(Vector3.up, aimRotation);
+
+        _reloadingTime = newReloadingTime;
     }
 }

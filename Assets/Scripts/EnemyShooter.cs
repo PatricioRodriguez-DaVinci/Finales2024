@@ -8,11 +8,12 @@ public class EnemyShooter : Enemy
     [SerializeField] private float viewRange;
 
     [Header("---------- Shoot ----------\n")]
-    [SerializeField] private GameObject canPrefab;
-    [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private float shootForce;
+    [SerializeField] protected GameObject shootingPrefab;
+    [SerializeField] protected GameObject spawnPoint;
+    [SerializeField] protected float shootForce;
 
-    private float _reloadingTime;
+    protected float _reloadingTime;
+    [SerializeField] protected float newReloadingTime;
 
     void Update()
     {
@@ -21,8 +22,7 @@ public class EnemyShooter : Enemy
 
         if (distance >= minDistance && distance < viewRange)
         {
-            transform.LookAt(myPlayerTransform);
-            transform.position += transform.forward * speed * Time.deltaTime;
+            LookAtPlater();
         }
 
         if (Vector3.Distance(transform.position, myPlayerTransform.position) <= shootRange && _reloadingTime <= 0)
@@ -30,11 +30,15 @@ public class EnemyShooter : Enemy
             Shoot();
         }
     }
-    void Shoot()
+    protected virtual void Shoot()
     {
-        GameObject myInstance = GameObject.Instantiate(canPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
+        GameObject myInstance = GameObject.Instantiate(shootingPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
         myInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.forward * shootForce);
+    }
 
-        _reloadingTime = 3f;
+    protected virtual void LookAtPlater()
+    {
+        transform.LookAt(myPlayerTransform);
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 }

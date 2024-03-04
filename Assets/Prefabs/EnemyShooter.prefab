@@ -133,9 +133,10 @@ MonoBehaviour:
   shootRange: 11
   minDistance: 5
   viewRange: 30
-  canPrefab: {fileID: 4738286420866472095, guid: c083f0be1db25534ea36da39a21561d9, type: 3}
+  shootingPrefab: {fileID: 4738286420866472095, guid: c083f0be1db25534ea36da39a21561d9, type: 3}
   spawnPoint: {fileID: 6703732109087080268}
   shootForce: 1000
+  newReloadingTime: 3
 --- !u!1 &6703732109087080268
 GameObject:
   m_ObjectHideFlags: 0
