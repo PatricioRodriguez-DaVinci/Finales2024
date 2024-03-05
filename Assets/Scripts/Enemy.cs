@@ -27,19 +27,21 @@ public class Enemy : Entity
         }
     }
 
-    protected void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
         {
             TakeDamage();
+            Destroy(gameObject);
         }
     }
 
-    protected void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
         {
             TakeDamage();
+            Destroy(gameObject);
         }
     }
 }

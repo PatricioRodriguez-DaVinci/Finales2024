@@ -10,7 +10,7 @@ public class InputController : MonoBehaviour
     public KeyCode attackKey = KeyCode.E;
     public KeyCode specialAttackKey = KeyCode.Mouse1;
     public KeyCode runKey = KeyCode.LeftShift;
-    public KeyCode menuKey = KeyCode.Escape;
+    public KeyCode menuKey = KeyCode.M;
 
     public bool isAttacking = false;
     public bool isSpecialttacking = false;
@@ -25,6 +25,6 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(attackKey)) isAttacking = true; else isAttacking = false;
         if (Input.GetKeyDown(specialAttackKey)) isSpecialttacking = true; else isSpecialttacking = false;
         if (Input.GetKey(runKey)) isRunning = true; else isRunning = false;
-        if (Input.GetKey(menuKey)) myScenesController.LoadScene("MainMenu");
+        if (Input.GetKey(menuKey)) myScenesController.LoadScene(MyScene.MainMenu);
     }
 }

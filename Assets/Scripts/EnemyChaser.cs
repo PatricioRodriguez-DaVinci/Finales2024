@@ -20,11 +20,11 @@ public class EnemyChaser : Enemy
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-    //    {
-    //        myDamageController.StartDamageEvent();
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            myDamageController.StartDamageEvent();
+        }
+    }
 }
