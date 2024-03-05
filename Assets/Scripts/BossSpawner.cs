@@ -10,7 +10,8 @@ public class BossSpawner : MonoBehaviour
     {
         if(myTimeController.timeRemaining <= 0)
         {
-            Instantiate(bossPrefab, transform.position, Quaternion.identity);
+            bossPrefab.SetActive(true);
+//            Instantiate(bossPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

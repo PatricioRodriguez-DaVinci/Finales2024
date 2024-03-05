@@ -6,8 +6,8 @@ public abstract class Entity : MonoBehaviour
     protected Transform myPlayerTransform;
     public ScenesController myScenesController;
 
-    [SerializeField] protected int life = default;
-    [SerializeField] protected float speed = default;
+    [SerializeField] protected int life;
+    [SerializeField] protected float speed;
 
     private void Awake()
     {

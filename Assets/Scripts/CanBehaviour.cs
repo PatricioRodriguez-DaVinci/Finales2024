@@ -25,6 +25,8 @@ public class CanBehaviour : Enemy
         direction = myPlayerTransform.forward;
 
         myRB.velocity = direction * Mathf.Max(curSpeed, 0);
+
+        this.gameObject.layer = LayerMask.NameToLayer("DamageZone");
     }
 
     private void OnTriggerEnter(Collider collider)

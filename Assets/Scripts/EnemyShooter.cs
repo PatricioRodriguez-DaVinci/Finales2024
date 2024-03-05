@@ -17,6 +17,8 @@ public class EnemyShooter : Enemy
 
     void Update()
     {
+        CheckTime();
+
         var distance = Vector3.Distance(transform.position, myPlayerTransform.position);
         _reloadingTime -= 1 * Time.deltaTime;
 
@@ -34,6 +36,8 @@ public class EnemyShooter : Enemy
     {
         GameObject myInstance = GameObject.Instantiate(shootingPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
         myInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.forward * shootForce);
+
+        _reloadingTime = newReloadingTime;
     }
 
     protected virtual void LookAtPlater()

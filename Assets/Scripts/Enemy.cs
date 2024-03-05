@@ -2,6 +2,21 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public TimeController myTimeController;
+
+    private void Start()
+    {
+        _go = GameObject.FindGameObjectWithTag("Controllers");
+        if (_go != null) myTimeController = _go.GetComponent<TimeController>();
+    }
+
+    protected virtual void CheckTime()
+    {
+        if (myTimeController.timeRemaining <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     protected virtual void TakeDamage()
     {
         if (life <= 1) Destroy(gameObject);
@@ -12,7 +27,7 @@ public class Enemy : Entity
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
         {
@@ -20,7 +35,7 @@ public class Enemy : Entity
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
         {

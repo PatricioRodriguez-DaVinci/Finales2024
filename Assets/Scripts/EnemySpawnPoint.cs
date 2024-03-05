@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
+    public TimeController myTimeController;
     public GameObject rangedEnemy;
     public GameObject meleeEnemy;
     public float spawnInterval = 3f;
+    public float radius;
 
     private void Start()
     {
@@ -16,10 +18,13 @@ public class EnemySpawnPoint : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
-        // Randomly choose which enemy to instantiate
-        GameObject enemyPrefab = Random.Range(0, 3) == 0 ? rangedEnemy : meleeEnemy;
+        if (!Physics.CheckSphere(transform.position, radius) && myTimeController.timeRemaining > 0)
+        {
+            // Randomly choose which enemy to instantiate
+            GameObject enemyPrefab = Random.Range(0, 3) == 0 ? rangedEnemy : meleeEnemy;
 
-        // Instantiate the chosen enemy at the spawner's position
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            // Instantiate the chosen enemy at the spawner's position
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        }
     }
 }

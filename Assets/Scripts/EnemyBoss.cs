@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 public class EnemyBoss : MonoBehaviour
 {
     private GameObject _go;
@@ -44,5 +45,28 @@ public class EnemyBoss : MonoBehaviour
     private void DestroyMe()
     {
         myScenesController.LoadScene("Win");
+    }
+
+    public List<Transform> waypoints;
+    public float speed = 5f;
+
+    private int currentWaypointIndex = 0;
+
+    void Update()
+    {
+        // Check if there are any waypoints
+        if (waypoints.Count == 0)
+            return;
+
+        // Move towards the current waypoint
+        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
+
+        // Check if the GameObject has reached the current waypoint
+        if (transform.position == targetWaypoint.position)
+        {
+            // Move to the next waypoint
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+        }
     }
 }

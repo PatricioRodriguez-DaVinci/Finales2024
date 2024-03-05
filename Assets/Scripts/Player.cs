@@ -1,30 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Player : Entity
 {
     public TMP_Text livesText;
     private void Start()
     {
-        life = 5;
         myDamageController.DoTakeDamage += TakeDamage;
+        life = 9;
         livesText.text = life.ToString();
     }
-    public void TakeDamage()
+
+    private void Update()
     {
-        if (life <= 1)
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            Debug.Log("Esperar 1 y cargar escena perdiste");
-            Invoke("DestroyMe", 1);
-            gameObject.SetActive(false);
+            life = 99;
+            livesText.text = life.ToString();
         }
-        else
+    }
+
+    public void GainLife()
+    {
+        life++;
+        livesText.text = life.ToString();
+    }
+
+        public void TakeDamage()
+    {
+        if (life > 1)
         {
             Debug.Log("Hacer daño a Player");
             life--;
             livesText.text = life.ToString();
+        }
+
+        else
+        {
+            Debug.Log("Esperar 1 y cargar escena perdiste");
+            Invoke("DestroyMe", 3);
+            livesText.text = "Game Over";
+            gameObject.SetActive(false);
         }
     }
 

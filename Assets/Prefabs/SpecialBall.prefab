@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab66a95194937141b8efa9de8ce6717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceTimes: 1
+  bounceTimes: 3
   myRB: {fileID: 1924799305746098838}
 --- !u!54 &1924799305746098838
 Rigidbody:

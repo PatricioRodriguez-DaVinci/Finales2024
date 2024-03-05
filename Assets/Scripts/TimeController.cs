@@ -7,10 +7,12 @@ public class TimeController : MonoBehaviour
 {
     public TMP_Text timerText;
     public float timeRemaining = 120f; // 2 minutes in seconds
-    private bool timerIsRunning = true;
+    public bool timerIsRunning = true;
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T)) timeRemaining = 5;
+
         if (timerIsRunning)
         {
             if (timeRemaining > 0)

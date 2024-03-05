@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] int actualAttack = 0;
 
-    [SerializeField] float desactivationTime = 0.2f;
+    [SerializeField] float desactivationTime = 0.45f;
     [SerializeField] float comboTimer = 0f;
     [SerializeField] float comboSetTimer = 0.5f;
 

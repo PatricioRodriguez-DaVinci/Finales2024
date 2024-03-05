@@ -9,6 +9,8 @@ public class EnemyChaser : Enemy
 
     void Update()
     {
+        CheckTime();
+
         var distance = Vector3.Distance(transform.position, myPlayerTransform.position);
 
         if (distance >= minDistance && distance < viewRange)
@@ -18,11 +20,11 @@ public class EnemyChaser : Enemy
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            myDamageController.StartDamageEvent();
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+    //    {
+    //        myDamageController.StartDamageEvent();
+    //    }
+    //}
 }

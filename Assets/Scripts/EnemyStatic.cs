@@ -9,6 +9,11 @@ public class EnemyStatic : EnemyShooter
     {
         // Se deja vacío a drede para que no haga nada
     }
+
+    protected override void CheckTime()
+    {
+        // Se deja vacío a drede para que no haga nada
+    }
     override protected void Shoot()
     {
         GameObject myInstance = GameObject.Instantiate(shootingPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
