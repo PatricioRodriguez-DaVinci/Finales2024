@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    void TakeDamage()
+    protected virtual void TakeDamage()
     {
         if (life <= 1) Destroy(gameObject);
         else
         {
-            Debug.Log("Hacer daño a enemigo");
+            Debug.Log("Hacer danio a enemigo");
             life--;
         }
     }
@@ -15,6 +15,14 @@ public class Enemy : Entity
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
+        {
+            TakeDamage();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
         {
             TakeDamage();
         }

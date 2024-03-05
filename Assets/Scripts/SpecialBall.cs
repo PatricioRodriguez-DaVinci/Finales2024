@@ -29,5 +29,10 @@ public class SpecialBall : MonoBehaviour
             Debug.Log("Bounce");
             bounceTimes--;
         }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

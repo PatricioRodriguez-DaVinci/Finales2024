@@ -7,7 +7,7 @@ public class EnemyStatic : EnemyShooter
     [SerializeField] private float aimRotation;
     override protected void LookAtPlater()
     {
-
+        // Se deja vacío a drede para que no haga nada
     }
     override protected void Shoot()
     {

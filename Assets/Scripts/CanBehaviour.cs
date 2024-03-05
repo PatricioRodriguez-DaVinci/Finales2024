@@ -17,7 +17,7 @@ public class CanBehaviour : Enemy
         lastVelocity = myRB.velocity;
     }
 
-    void ChangeDirection()
+    protected void ChangeDirection()
     {
         Debug.Log("cambiar");
 

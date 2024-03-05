@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    public ScenesController myScenesController;
+
     [Header("---------- Movement Imputs ----------\n")]
-    public KeyCode attackKey = KeyCode.Mouse0;
+    public KeyCode attackKey = KeyCode.E;
     public KeyCode specialAttackKey = KeyCode.Mouse1;
     public KeyCode runKey = KeyCode.LeftShift;
+    public KeyCode menuKey = KeyCode.Escape;
 
     public bool isAttacking = false;
     public bool isSpecialttacking = false;
@@ -22,5 +25,6 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(attackKey)) isAttacking = true; else isAttacking = false;
         if (Input.GetKeyDown(specialAttackKey)) isSpecialttacking = true; else isSpecialttacking = false;
         if (Input.GetKey(runKey)) isRunning = true; else isRunning = false;
+        if (Input.GetKey(menuKey)) myScenesController.LoadScene("MainMenu");
     }
 }
