@@ -44,7 +44,7 @@ public class EnemyBoss : MonoBehaviour
 
     private void DestroyMe()
     {
-        myScenesController.LoadScene(MyScene.Win);
+        myScenesController.LoadScene("Win");
     }
 
     public List<Transform> waypoints;

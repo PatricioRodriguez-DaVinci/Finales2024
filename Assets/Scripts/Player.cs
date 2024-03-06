@@ -8,6 +8,7 @@ public class Player : Entity
     {
         myDamageController.DoTakeDamage += TakeDamage;
         life = 9;
+        livesText.text = life.ToString();
     }
 
     private void Update()
@@ -15,13 +16,14 @@ public class Player : Entity
         if (Input.GetKeyDown(KeyCode.L))
         {
             life = 99;
+            livesText.text = life.ToString();
         }
-        livesText.text = life.ToString();
     }
 
     public void GainLife()
     {
         life++;
+        livesText.text = life.ToString();
     }
 
         public void TakeDamage()
@@ -30,6 +32,7 @@ public class Player : Entity
         {
             Debug.Log("Hacer daño a Player");
             life--;
+            livesText.text = life.ToString();
         }
 
         else
@@ -48,6 +51,6 @@ public class Player : Entity
 
     private void DestroyMe()
     {
-        myScenesController.LoadScene(MyScene.GameOver);
+        myScenesController.LoadScene("GameOver");
     }
 }
