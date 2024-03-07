@@ -4225,11 +4225,11 @@ GameObject:
   m_Component:
   - component: {fileID: 133963063}
   - component: {fileID: 133963062}
+  - component: {fileID: 133963056}
   - component: {fileID: 133963061}
   - component: {fileID: 133963060}
   - component: {fileID: 133963059}
   - component: {fileID: 133963058}
-  - component: {fileID: 133963056}
   - component: {fileID: 133963057}
   - component: {fileID: 133963064}
   m_Layer: 11
@@ -4252,9 +4252,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myScenesController: {fileID: 0}
-  life: 10
+  life: 0
   speed: 0
   livesText: {fileID: 2126892058}
+  cheatLives: 99
+  lives: 0
 --- !u!114 &133963057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4271,6 +4273,8 @@ MonoBehaviour:
   life: 0
   speed: 10
   livesText: {fileID: 0}
+  cheatLives: 0
+  lives: 0
   myInpuntcontroller: {fileID: 617551164}
   horizontalMove: 0
   verticalMove: 0
@@ -37054,8 +37058,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Timer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ebd596b5cfa0c74fa6b634480d4e903, type: 2}
+  m_sharedMaterial: {fileID: 1081367842731956172, guid: 6ebd596b5cfa0c74fa6b634480d4e903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -62972,8 +62976,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lives
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ebd596b5cfa0c74fa6b634480d4e903, type: 2}
+  m_sharedMaterial: {fileID: 1081367842731956172, guid: 6ebd596b5cfa0c74fa6b634480d4e903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

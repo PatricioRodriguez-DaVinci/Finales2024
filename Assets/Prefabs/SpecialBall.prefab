@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 502633446708632860}
   - component: {fileID: 1613039172982371049}
   - component: {fileID: 1924799305746098838}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: SpecialBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab66a95194937141b8efa9de8ce6717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceTimes: 3
+  bounceTimes: 5
   myRB: {fileID: 1924799305746098838}
 --- !u!54 &1924799305746098838
 Rigidbody:

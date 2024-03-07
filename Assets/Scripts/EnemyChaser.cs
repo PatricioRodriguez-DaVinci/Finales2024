@@ -7,6 +7,10 @@ public class EnemyChaser : Enemy
     [SerializeField] private float minDistance;
     [SerializeField] private float viewRange;
 
+    public float impulseForce = 100f;
+
+
+
     void Update()
     {
         CheckTime();
@@ -20,11 +24,42 @@ public class EnemyChaser : Enemy
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-    //    {
-    //        myDamageController.StartDamageEvent();
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            myDamageController.StartDamageEvent();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
+        {
+            rb.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
+            TakeDamage();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BallZone"))
+        {
+            rb.AddForce(-transform.forward * impulseForce / 2, ForceMode.Impulse);
+            TakeDamage();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("DamageZone"))
+        {
+            rb.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
+            TakeDamage();
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("BallZone"))
+        {
+            rb.AddForce(-transform.forward * impulseForce / 2, ForceMode.Impulse);
+            TakeDamage();
+        }
+    }
 }

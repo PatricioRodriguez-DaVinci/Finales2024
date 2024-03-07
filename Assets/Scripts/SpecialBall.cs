@@ -19,7 +19,7 @@ public class SpecialBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             curSpeed = lastVelocity.magnitude;
             direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
@@ -32,7 +32,16 @@ public class SpecialBall : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
+
+    //private void OnTriggerEnter(Collider collision)
+    //{
+
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

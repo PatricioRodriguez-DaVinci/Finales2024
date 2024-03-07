@@ -128,8 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myScenesController: {fileID: 0}
-  life: 1
+  life: 2
   speed: 6
   myTimeController: {fileID: 0}
   minDistance: 0
   viewRange: 45
+  impulseForce: 25

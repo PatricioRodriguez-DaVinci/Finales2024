@@ -4,38 +4,39 @@ using UnityEngine;
 public class Player : Entity
 {
     public TMP_Text livesText;
+    public int cheatLives;
+    public int lives;
     private void Start()
     {
         myDamageController.DoTakeDamage += TakeDamage;
-        life = 9;
-        livesText.text = life.ToString();
+        lives = 15;
+        cheatLives = 99;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            life = 99;
-            livesText.text = life.ToString();
+            GainLife();
         }
+        livesText.text = lives.ToString();
+
+        Debug.Log(lives);
     }
 
     public void GainLife()
     {
-        life++;
-        livesText.text = life.ToString();
+        lives++;
     }
 
         public void TakeDamage()
     {
-        if (life > 1)
+        if (lives > 1)
         {
-            Debug.Log("Hacer daño a Player");
-            life--;
-            livesText.text = life.ToString();
+            lives--;
         }
 
-        else
+        else if (lives <= 1)
         {
             Debug.Log("Esperar 1 y cargar escena perdiste");
             Invoke("DestroyMe", 3);
@@ -51,6 +52,6 @@ public class Player : Entity
 
     private void DestroyMe()
     {
-        myScenesController.LoadScene("GameOver");
+        myScenesController.LoadScene(MyScene.GameOver);
     }
 }

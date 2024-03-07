@@ -7,6 +7,11 @@ public class ScenesController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadScene(MyScene sceneName)
+    {
+        SceneManager.LoadScene(sceneName.ToString());
+    }
     public void QuitGame()
     {
         Application.Quit();
