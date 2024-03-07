@@ -23,7 +23,7 @@ public class Enemy : Entity
         if (life <= 1)
         {
             Destroy(gameObject);
-            AudioManager.Instance.PlayAudio(_deadClip);
+            SFXManager.Instance.PlaySFX(_deadClip);
         }
         else
         {

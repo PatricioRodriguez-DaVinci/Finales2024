@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixer _mixer;
     [SerializeField] private AudioSource _source;
 
+    public void SetMasterVolume(float sliderValue)
+    {
+        _mixer.SetFloat("MasterVol", Mathf.Log10(sliderValue) * 20);
+    }
+
     public void SetMusicVolume(float sliderValue)
     {
         _mixer.SetFloat("MusicVol", Mathf.Log10(sliderValue) * 20);

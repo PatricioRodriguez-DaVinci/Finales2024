@@ -20,8 +20,6 @@ public class Player : Entity
             GainLife();
         }
         livesText.text = lives.ToString();
-
-        Debug.Log(lives);
     }
 
     public void GainLife()
