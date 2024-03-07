@@ -7,6 +7,8 @@ public class EnemyChaser : Enemy
     [SerializeField] private float minDistance;
     [SerializeField] private float viewRange;
 
+    [SerializeField] protected AudioClip _attackClip;
+
     public float impulseForce = 100f;
 
     void Update()
@@ -29,6 +31,7 @@ public class EnemyChaser : Enemy
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             myDamageController.StartDamageEvent();
+            SFXManager.Instance.PlaySFX(_attackClip);
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("DamageZone"))

@@ -140,6 +140,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 7904847724032808619}
   shootForce: 1000
   newReloadingTime: 2
+  _shootClip: {fileID: 8300000, guid: 3ac7ed0cf7012ca4dbf0fa67f44ae7fc, type: 3}
 --- !u!1 &7904847724032808619
 GameObject:
   m_ObjectHideFlags: 0

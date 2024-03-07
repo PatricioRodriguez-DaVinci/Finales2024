@@ -19,11 +19,22 @@ public class SFXManager : MonoBehaviour
 
     [Header("Audio Manager")]
     [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _errorClip;
 
     public void PlaySFX(AudioClip clip)
     {
-        _source.Stop();
         _source.clip = clip;
-        _source.Play();
+
+        if (_source.clip != null)
+        {
+            _source.PlayOneShot(clip);
+        }
+
+        else
+        {
+            Debug.LogWarning("Falta asignar clip de audio");
+            _source.clip = _errorClip;
+            _source.Play();
+        }
     }
 }

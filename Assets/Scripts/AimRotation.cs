@@ -17,7 +17,7 @@ public class AimRotation : MonoBehaviour
 
     private void Update()
     {
-        if(myInputController.isAttacking) Aim();
+        if(myInputController.isAttacking || myInputController.isSpecialttacking) Aim();
     }
 
     private void Aim()

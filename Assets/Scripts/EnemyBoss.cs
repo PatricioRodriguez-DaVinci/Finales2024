@@ -6,6 +6,7 @@ public class EnemyBoss : MonoBehaviour
     private ScenesController myScenesController;
 
     [SerializeField] protected int bossLife = default;
+    [SerializeField] protected AudioClip _deadClip;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class EnemyBoss : MonoBehaviour
     {
         if (bossLife <= 1)
         {
+            SFXManager.Instance.PlaySFX(_deadClip);
             Invoke("DestroyMe", 1f);
             gameObject.SetActive(false);
         }

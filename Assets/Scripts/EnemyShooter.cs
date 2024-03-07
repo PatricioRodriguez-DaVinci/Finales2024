@@ -15,6 +15,8 @@ public class EnemyShooter : Enemy
     protected float _reloadingTime;
     [SerializeField] protected float newReloadingTime;
 
+    [SerializeField] protected AudioClip _shootClip;
+
     void Update()
     {
         CheckTime();
@@ -38,6 +40,7 @@ public class EnemyShooter : Enemy
         myInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.forward * shootForce);
 
         _reloadingTime = newReloadingTime;
+        SFXManager.Instance.PlaySFX(_shootClip);
     }
 
     protected virtual void LookAtPlater()

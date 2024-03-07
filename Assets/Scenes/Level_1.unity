@@ -64961,6 +64961,10 @@ PrefabInstance:
       propertyPath: _source
       value: 
       objectReference: {fileID: 8942530559284780747}
+    - target: {fileID: 3445956718660458399, guid: b1ad44ceb5c98ff4eb858f6c01e36d39, type: 3}
+      propertyPath: _errorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 94ce73df672b51d49ba51f8956390efe, type: 3}
     - target: {fileID: 7768803350535588452, guid: b1ad44ceb5c98ff4eb858f6c01e36d39, type: 3}
       propertyPath: m_Name
       value: SFX Manager

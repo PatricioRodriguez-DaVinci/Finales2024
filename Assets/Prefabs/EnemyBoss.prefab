@@ -135,6 +135,7 @@ MonoBehaviour:
   life: 100
   speed: 0
   myTimeController: {fileID: 0}
+  _deadClip: {fileID: 8300000, guid: e7613ee7c6d87c444af6122ce842de86, type: 3}
   shootRange: 40
   minDistance: 1
   viewRange: 40
@@ -142,6 +143,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4908838601123208136}
   shootForce: 1000
   newReloadingTime: 0.1
+  _shootClip: {fileID: 0}
   aimRotation: 15
 --- !u!114 &4732265592014871842
 MonoBehaviour:
@@ -159,6 +161,7 @@ MonoBehaviour:
   life: 100
   speed: 0
   myTimeController: {fileID: 0}
+  _deadClip: {fileID: 0}
   shootRange: 40
   minDistance: 1
   viewRange: 40
@@ -166,6 +169,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 7352047221476265271}
   shootForce: 1000
   newReloadingTime: 0.1
+  _shootClip: {fileID: 0}
   aimRotation: -15
 --- !u!114 &-5369758333164200046
 MonoBehaviour:
@@ -180,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossLife: 50
+  waypoints: []
+  speed: 5
 --- !u!1 &4908838601123208136
 GameObject:
   m_ObjectHideFlags: 0
