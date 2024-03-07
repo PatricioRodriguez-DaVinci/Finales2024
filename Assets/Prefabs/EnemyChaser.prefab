@@ -135,4 +135,4 @@ MonoBehaviour:
   minDistance: 0
   viewRange: 45
   _attackClip: {fileID: 8300000, guid: 820dab704d4f06c4aab07ae2520d7b9f, type: 3}
-  impulseForce: 25
+  impulseForce: 50
