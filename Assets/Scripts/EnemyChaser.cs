@@ -9,8 +9,6 @@ public class EnemyChaser : Enemy
 
     public float impulseForce = 100f;
 
-
-
     void Update()
     {
         CheckTime();

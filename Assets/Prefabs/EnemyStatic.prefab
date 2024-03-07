@@ -143,8 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75e45d19dac8a7469187d64bae18f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myScenesController: {fileID: 0}
   life: 9999
   speed: 0
+  myTimeController: {fileID: 0}
+  _deadClip: {fileID: 8300000, guid: e7613ee7c6d87c444af6122ce842de86, type: 3}
   shootRange: 20
   minDistance: 1
   viewRange: 25

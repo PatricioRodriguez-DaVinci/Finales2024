@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
     public TimeController myTimeController;
+    [SerializeField] protected AudioClip _deadClip;
 
     private void Start()
     {
@@ -19,7 +20,11 @@ public class Enemy : Entity
     }
     protected virtual void TakeDamage()
     {
-        if (life <= 1) Destroy(gameObject);
+        if (life <= 1)
+        {
+            Destroy(gameObject);
+            AudioManager.Instance.PlayAudio(_deadClip);
+        }
         else
         {
             Debug.Log("Hacer danio a enemigo");

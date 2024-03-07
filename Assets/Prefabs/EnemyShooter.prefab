@@ -132,6 +132,7 @@ MonoBehaviour:
   life: 1
   speed: 4
   myTimeController: {fileID: 0}
+  _deadClip: {fileID: 8300000, guid: e7613ee7c6d87c444af6122ce842de86, type: 3}
   shootRange: 30
   minDistance: 5
   viewRange: 45
