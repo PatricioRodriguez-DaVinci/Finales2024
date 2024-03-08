@@ -9,6 +9,8 @@ public class Player : Entity
 
     [SerializeField] protected AudioClip _receiveDamageClip;
     [SerializeField] protected AudioClip _playerDeadClip;
+
+    public GameObject deadPrefab;
     private void Start()
     {
         myDamageController.DoTakeDamage += TakeDamage;
@@ -41,9 +43,9 @@ public class Player : Entity
         else if (lives <= 1)
         {
             SFXManager.Instance.PlaySFX(_playerDeadClip);
-            //Debug.Log("Esperar 1 y cargar escena perdiste");
-            Invoke("DestroyMe", 3);
+            Invoke("DestroyMe", 2);
             livesText.text = "Game Over";
+            GameObject myInstance = GameObject.Instantiate(deadPrefab, transform.position, Quaternion.identity) as GameObject;
             gameObject.SetActive(false);
         }
     }

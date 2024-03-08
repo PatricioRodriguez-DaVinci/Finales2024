@@ -5,12 +5,12 @@ using UnityEngine;
 public class BossSpawner : MonoBehaviour
 {
     public TimeController myTimeController;
-    public GameObject bossPrefab;
+    public GameObject boss;
     void Update()
     {
         if(myTimeController.timeRemaining <= 0)
         {
-            bossPrefab.SetActive(true);
+            boss.SetActive(true);
 //            Instantiate(bossPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

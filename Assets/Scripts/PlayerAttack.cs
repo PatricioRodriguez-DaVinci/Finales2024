@@ -31,8 +31,11 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+
         if (myInputs.isAttacking)
         {
+            
+
             attackCollider[actualAttack].SetActive(true);
 
             Invoke("DeactivateObject", desactivationTime);
@@ -48,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
                 actualAttack = 0;
                 comboTimer = 0.05f;
             }
+            
         }
     }
 
