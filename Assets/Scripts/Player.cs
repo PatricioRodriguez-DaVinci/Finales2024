@@ -7,6 +7,8 @@ public class Player : Entity
     public int cheatLives;
     public int lives;
 
+    private bool cheatOn;
+
     [SerializeField] protected AudioClip _receiveDamageClip;
     [SerializeField] protected AudioClip _playerDeadClip;
 
@@ -14,22 +16,29 @@ public class Player : Entity
     private void Start()
     {
         myDamageController.DoTakeDamage += TakeDamage;
-        lives = 15;
+        lives = 25;
         cheatLives = 99;
+        cheatOn = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            GainLife();
+            CheatOn();
         }
+
+        if (cheatOn)
+        {
+            lives = cheatLives;
+        }
+
         livesText.text = lives.ToString();
     }
 
-    public void GainLife()
+    public void CheatOn()
     {
-        lives++;
+        cheatOn = true;
     }
 
         public void TakeDamage()

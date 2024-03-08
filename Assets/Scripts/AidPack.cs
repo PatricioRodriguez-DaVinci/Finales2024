@@ -11,7 +11,7 @@ public class AidPack : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            myPlayer.GainLife();
+//            myPlayer.GainLife();
             Transform randomSpawnPoint = GetRandomSpawnPoint();
             transform.position = randomSpawnPoint.position;
         }
