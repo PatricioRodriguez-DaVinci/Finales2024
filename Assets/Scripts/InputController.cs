@@ -15,12 +15,15 @@ public class InputController : MonoBehaviour
     public bool isAttacking = false;
     public bool isSpecialttacking = false;
     public bool isRunning = false;
+    public bool isWalking = false;
 
     public float xAxis, zAxis;
     private void Update()
     {
         xAxis = Input.GetAxisRaw("Horizontal");
         zAxis = Input.GetAxisRaw("Vertical");
+
+        if (xAxis != 0 || zAxis != 0) isWalking = true; else isWalking = false;
 
         if (Input.GetKeyDown(attackKey)) isAttacking = true; else isAttacking = false;
         if (Input.GetKeyDown(specialAttackKey)) isSpecialttacking = true; else isSpecialttacking = false;

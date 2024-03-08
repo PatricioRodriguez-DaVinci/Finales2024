@@ -30,11 +30,11 @@ public class SFXManager : MonoBehaviour
             _source.PlayOneShot(clip);
         }
 
-        else
-        {
-            Debug.LogWarning("Falta asignar clip de audio");
-            _source.clip = _errorClip;
-            _source.Play();
-        }
+        //else
+        //{
+        //    Debug.LogWarning("Falta asignar clip de audio");
+        //    _source.clip = _errorClip;
+        //    _source.Play();
+        //}
     }
 }

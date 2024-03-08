@@ -6,6 +6,9 @@ public class Player : Entity
     public TMP_Text livesText;
     public int cheatLives;
     public int lives;
+
+    [SerializeField] protected AudioClip _receiveDamageClip;
+    [SerializeField] protected AudioClip _playerDeadClip;
     private void Start()
     {
         myDamageController.DoTakeDamage += TakeDamage;
@@ -31,12 +34,14 @@ public class Player : Entity
     {
         if (lives > 1)
         {
+            SFXManager.Instance.PlaySFX(_receiveDamageClip);
             lives--;
         }
 
         else if (lives <= 1)
         {
-            Debug.Log("Esperar 1 y cargar escena perdiste");
+            SFXManager.Instance.PlaySFX(_playerDeadClip);
+            //Debug.Log("Esperar 1 y cargar escena perdiste");
             Invoke("DestroyMe", 3);
             livesText.text = "Game Over";
             gameObject.SetActive(false);

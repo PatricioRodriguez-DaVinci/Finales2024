@@ -27,7 +27,7 @@ public class Enemy : Entity
         }
         else
         {
-            Debug.Log("Hacer danio a enemigo");
+//            Debug.Log("Hacer danio a enemigo");
             life--;
         }
     }

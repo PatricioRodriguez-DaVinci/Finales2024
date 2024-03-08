@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject[] attackCollider;
     public List<bool> isAttackActive = new List<bool>();
 
-    [SerializeField] int actualAttack = 0;
+    [SerializeField] public int actualAttack = 0;
 
     [SerializeField] float desactivationTime = 0.45f;
     [SerializeField] float comboTimer = 0f;
